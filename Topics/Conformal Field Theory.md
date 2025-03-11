@@ -1,0 +1,79 @@
+# CFT Recap
+*Nov.25 2024*
+- [John Cardy's lecture notes](https://arxiv.org/pdf/hep-th/0411189)
+## Conformal Transformation
+- conformal transformation
+    - $z→z'=f(z)$ perserves angle (analytic)
+    - $⟨ϕ_1(z_1,z̄_1)ϕ_2(z_2,z̄_2)…⟩ = f'(z_j)^{h_j}f̄'(z̄_j)^{h̄_j}…⟨ϕ_1(z_1',z̄_1')ϕ_2(z_2',z̄_2')…⟩$
+        - ϕ: primary fields. h,h̄: conformal weights
+- 2pt function fixed by conformal symmetry
+    - $⟨ϕ_j(0)ϕ_k(Δz,Δz̄)⟩=δ_{jk}Δz^{2h_j}Δz̄^{2h_k}$
+- npt function fixed by OPE coefficient
+    - $ϕ_i(z,z̄)ϕ_j(w,w̄) = ∑_k c_{ijk} (z-w)^{h_k-h_i-h_j} (z̄-w̄)^{h̄_k-h̄_i-h̄_j} ϕ_k(w,w̄) + \text{descendents}$
+- stress energy tensor is traceless
+    - $T^{μν} = - 2π \frac{δ\ln Z}{δg_{μν}}$
+    - $∂_μ T^{μν}=0$ (translation), $T^{μν}=T^{νμ}$ (rotational), $T_μ^μ∝β(g)=0$ (scaling)
+    - in complex coordinate, $T_{zz}=T(z), T_{z̄z̄}=T̄(z̄)$
+- ward identity: 
+    - integral form
+        - $∮⟨T(z)∏_j ϕ_j(z_j)⟩a(z)dz = ∑_j (h_j a'(z_j) + a(z_j) ∂_j) ⟨∏ϕ_j(z_j)⟩$
+    - operator product form
+        - $T(z)ϕ(w) = h (z-w)^{-2} ϕ(w) + (z-w)^{-1} ∂ϕ(w) + O(z^0)$ \text{descendants}
+- transforming property of T
+    - $T(z)T(w) = c/2 (z-w)^{-4} + 2 (z-w)^{-2} T(w) + …$
+        - $c$ central charge
+    - $T(z) → f'(z)^2 T(z') + \frac{c}{12} \{z',z\}$
+        - Schwartzian derivative $\{z',z\} = (f'''f'-\frac32 f''^2) / f'^2$
+## Virasoro Algebra
+**Nov.27 2024**
+- Virasoro Algebra
+    - $[L_m, L_n] = (m-n)L_{m+n} + \frac{c}{12} m(m^2-1) δ^{m+n,0}$
+    - $L_n = \frac{1}{2π}∮z^{n+1}T(z)dz$
+    - $L̄_n = \frac{1}{2π}∮z^{n+1}T̄(z̄)dz̄$
+    - $D = \frac{1}{2π}∫dθrT_{rr}rdθ = \frac{1}{2πi}(∮zTdz - ∮z̄T̄dz̄)$
+- Operator State Correspondence
+    - $|ϕ⟩ = ϕ(0)|0⟩$
+    - eigenstate of D
+- Primary Field
+    - $L_0|ϕ⟩=h|ϕ⟩$, $L_{n>0}|ϕ⟩=0$, same for $L̄,h̄$
+        - $h$, $h̄$ conformal weight
+    - $L_{n<0}$ generates descendents, forming a highest weight representation of V.A.
+- Null State
+    - descendent superposition annihilated by all $L_{n>0}$
+        - need to be mod out to get irrep of V.A.
+    - exists when h in the Kac table:
+        - $h_{r,s} = \frac{(r(m+1)-sm)^2-1}{4m(m+1)}$
+            - $c=1-6/(m(m+1))$, $r,s≥0$
+- Hilbert space
+    - $ℋ = ⨁\limits_{h,h̄} n_{h,h̄} 𝒱_h ⊗ 𝒱̄_h̄$
+        - $n_{h,h̄}$ number of primary fields of weights $(h,h̄)$
+- Fusion Algebra
+    - $𝒱_a ⊙ 𝒱_b = ∑_c N_{ab}^c 𝒱_c$
+- Minimal Models
+    - $c = 1 - 6(p-q)^2/pq$
+    - fusion algebra closes with finite number of possible values $1≤r≤q, 1≤s≤p$
+    - $𝒱_{r_1,s_1} ⊙ 𝒱_{r_2,s_2} = ∑\limits_{|r_1-r_2|}^{r_1+r_2+1}∑\limits_{|s_1-s_2|}^{s_1+s_2+1}𝒱_{r,s}$
+    - all unitary CFT with $c<1$ are enumerated by $p/q=(m+1)/m, m≥3$ minimal models 
+## Modular Invariance
+- QFT on the circle
+    - $z → \frac{1}{2π}\ln z = t+ix, x∈[0,1)$
+    - $H = 2π(L_0+L̄_0) - \frac{πc}{6}$, $P = 2π(L_0 - L̄_0)$
+- Partition function on a general torus
+    - torus expanded by $1$ and $τ$
+    - $Z(τ,\bar τ) = \text{Tr}q^{L_0-c/24}q̄^{L̄_0-c/24}$
+        - $q=e^{2πiτ}$
+    - $Z(τ,\bar τ) = ∑ n_{h,h̄} χ_h(q) χ_h̄(q)$
+        - $χ_h$ is the character of representation $𝒱_h$
+        - $χ_h(q) = \text{Tr}_{𝒱_h}q^{L_0-c/24} = ∑_N d_h(N) q^{h-(c/24)/N}$
+        - $d_h(N)$ degeeracy at level N
+- $SL(2,Z)$ Modular Group
+    - $S:τ → -1/τ$, $T:τ → τ+1$ gives the same torus
+    - restricts $n_{h,h̄}$
+    - T invariance: $h-h̄∈ℤ$
+    - S invariance: characters transform linearly under S
+        - $χ_h(e^{-2πi/τ}) = \sum_{h'} S_h^{h'} χ_{h'}(e^{2πiτ})$
+    - usually, S is symmetric, orthogonal and finite-dimensional
+    - modular invariant partition function
+        - e.g. $n_{h,h̄}=δ_{h,h̄}$, $Z = ∑_h χ_h(q) χ_h(q̄)$
+        - other modular invariants are also possible
+        - e.g. A series in minimal models
