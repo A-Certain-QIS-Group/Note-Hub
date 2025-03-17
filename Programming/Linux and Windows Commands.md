@@ -67,6 +67,12 @@ kill -CONT <PID>
     # resume it
 ```
 
+### Run Multiple Processes Sequentially
+
+```bash
+julia folder/script1.jl ; julia folder/script2.jl
+```
+
 ## Symbolink
 
 ### Create Symbolink
